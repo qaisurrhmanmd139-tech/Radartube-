@@ -157,7 +157,6 @@ header{
 }
 
 @keyframes typing{
-
     0%,60%,100%{
         opacity:.25;
     }
@@ -165,7 +164,6 @@ header{
     30%{
         opacity:1;
     }
-
 }
 
 .input-area{
@@ -220,7 +218,7 @@ header{
 
 <div class="top">
 
-<a href="radartube.html" class="back">‹</a>
+<a href="index.html" class="back">‹</a>
 
 <div class="logo">
 
@@ -346,7 +344,6 @@ function answerFromText(){
 
     var answer = "";
 
-
     if(
         text.indexOf("salam") !== -1 ||
         text.indexOf("assalam") !== -1
@@ -357,7 +354,6 @@ function answerFromText(){
         "Kaise ho bhai?";
 
     }
-
 
     else if(
         text === "hi" ||
@@ -371,7 +367,6 @@ function answerFromText(){
 
     }
 
-
     else if(
         text.indexOf("kaise ho") !== -1
     ){
@@ -382,7 +377,6 @@ function answerFromText(){
 
     }
 
-
     else if(
         text.indexOf("naam") !== -1
     ){
@@ -391,7 +385,6 @@ function answerFromText(){
         "Mera naam <b>Radartube AI</b> hai 🤖";
 
     }
-
 
     else if(
         text.indexOf("radartube") !== -1
@@ -402,7 +395,6 @@ function answerFromText(){
         "Isme Home, Photos, My Links aur Radartube AI sections hain.";
 
     }
-
 
     else if(
         text.indexOf("photo") !== -1 ||
@@ -420,7 +412,6 @@ function answerFromText(){
 
     }
 
-
     else if(
         text.indexOf("youtube") !== -1 ||
         text.indexOf("telegram") !== -1 ||
@@ -436,7 +427,6 @@ function answerFromText(){
 
     }
 
-
     else if(
         text.indexOf("home") !== -1
     ){
@@ -444,12 +434,11 @@ function answerFromText(){
         answer =
         "🏠 Radartube ke Home page par jaane ke liye button dabao.<br><br>" +
 
-        "<a href='radartube.html' class='photo-link'>" +
+        "<a href='index.html' class='photo-link'>" +
         "🏠 Home kholo →" +
         "</a>";
 
     }
-
 
     else if(
         text.indexOf("thank") !== -1 ||
@@ -461,7 +450,6 @@ function answerFromText(){
 
     }
 
-
     else if(
         text.indexOf("bye") !== -1
     ){
@@ -470,7 +458,6 @@ function answerFromText(){
         "Allah Hafiz bhai 👋❤️";
 
     }
-
 
     else{
 
@@ -482,7 +469,6 @@ function answerFromText(){
         "Tum mujhse Radartube, Photos, Home aur Links ke baare me pooch sakte ho.";
 
     }
-
 
     var aiBox = document.createElement("div");
 

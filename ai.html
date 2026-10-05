@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Radartube AI</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f3f8ff;
+    color:#17233d;
+}
+
+header{
+    background:linear-gradient(135deg,#087df5,#35a4ff);
+    color:white;
+    padding:15px;
+    position:sticky;
+    top:0;
+    z-index:10;
+    box-shadow:0 4px 15px #b9d8f5;
+}
+
+.top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.back{
+    color:white;
+    text-decoration:none;
+    font-size:30px;
+    width:40px;
+}
+
+.logo{
+    text-align:center;
+    flex:1;
+}
+
+.logo b{
+    display:block;
+    font-size:21px;
+}
+
+.logo small{
+    opacity:.85;
+}
+
+.clear{
+    background:white;
+    color:#087df5;
+    border:0;
+    padding:9px 13px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.chat{
+    padding:20px 16px 120px;
+    max-width:650px;
+    margin:auto;
+}
+
+.welcome{
+    text-align:center;
+    padding:20px 10px;
+}
+
+.robot{
+    width:80px;
+    height:80px;
+    margin:auto;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    box-shadow:0 5px 20px #cbdff3;
+}
+
+.welcome h2{
+    margin:14px 0 5px;
+}
+
+.welcome p{
+    margin:0;
+    color:#70819a;
+}
+
+.quick{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:5px 0 15px;
+}
+
+.quick button{
+    white-space:nowrap;
+    background:white;
+    color:#087df5;
+    border:1px solid #cfe2f7;
+    padding:10px 14px;
+    border-radius:22px;
+    font-weight:bold;
+}
+
+.message{
+    max-width:86%;
+    padding:14px 16px;
+    margin:12px 0;
+    border-radius:20px;
+    line-height:1.55;
+    box-shadow:0 3px 12px #dbe8f5;
+    word-wrap:break-word;
+}
+
+.ai{
+    background:white;
+    border-bottom-left-radius:5px;
+}
+
+.user{
+    background:#087df5;
+    color:white;
+    margin-left:auto;
+    border-bottom-right-radius:5px;
+}
+
+.typing{
+    display:none;
+    background:white;
+    width:70px;
+    padding:13px;
+    border-radius:18px;
+    box-shadow:0 3px 10px #dbe8f5;
+}
+
+.dot{
+    display:inline-block;
+    width:7px;
+    height:7px;
+    background:#087df5;
+    border-radius:50%;
+    margin:2px;
+    animation:typing 1s infinite;
+}
+
+@keyframes typing{
+
+    0%,60%,100%{
+        opacity:.25;
+    }
+
+    30%{
+        opacity:1;
+    }
+
+}
+
+.input-area{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:white;
+    padding:10px 12px;
+    display:flex;
+    gap:9px;
+    box-shadow:0 -4px 18px #cbdceb;
+    z-index:20;
+}
+
+.input-area input{
+    flex:1;
+    border:1px solid #c9d9e9;
+    outline:none;
+    padding:14px 17px;
+    border-radius:28px;
+    font-size:16px;
+}
+
+.send{
+    width:52px;
+    height:52px;
+    border:0;
+    border-radius:50%;
+    background:#087df5;
+    color:white;
+    font-size:22px;
+}
+
+.photo-link{
+    display:inline-block;
+    background:#087df5;
+    color:white;
+    padding:11px 18px;
+    border-radius:22px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="top">
+
+<a href="radartube.html" class="back">‹</a>
+
+<div class="logo">
+
+<b>🤖 Radartube AI</b>
+
+<small>Free Assistant</small>
+
+</div>
+
+<button class="clear" id="clearButton">
+Clear
+</button>
+
+</div>
+
+</header>
+
+
+<div class="chat">
+
+<div class="welcome">
+
+<div class="robot">
+🤖
+</div>
+
+<h2>Assalamualaikum 👋</h2>
+
+<p>Welcome to Radartube AI</p>
+
+</div>
+
+
+<div class="quick">
+
+<button id="helloButton">
+👋 Hello
+</button>
+
+<button id="howButton">
+😊 Kaise ho?
+</button>
+
+<button id="radarButton">
+💙 Radartube
+</button>
+
+<button id="photoButton">
+🖼️ Photos
+</button>
+
+</div>
+
+
+<div id="messages">
+
+<div class="message ai">
+
+<b>🤖 Radartube AI</b>
+
+<br><br>
+
+Wa alaikum assalam! 👋
+
+<br><br>
+
+Main Radartube ka free assistant hoon. 😊
+
+<br><br>
+
+Main Radartube ke available Photos, Home aur Links ke baare mein help kar sakta hoon.
+
+</div>
+
+</div>
+
+
+<div class="typing" id="typing">
+
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+
+</div>
+
+</div>
+
+
+<div class="input-area">
+
+<input
+id="question"
+type="text"
+placeholder="Message likho..."
+autocomplete="off"
+>
+
+<button class="send" id="sendButton">
+➤
+</button>
+
+</div>
+
+
+<script>
+
+"use strict";
+
+var question = document.getElementById("question");
+var messages = document.getElementById("messages");
+var typing = document.getElementById("typing");
+
+
+function answerFromText(){
+
+    var lastUser = messages.lastElementChild;
+
+    if(lastUser === null){
+        return;
+    }
+
+    var text = lastUser.textContent.toLowerCase();
+
+    var answer = "";
+
+
+    if(
+        text.indexOf("salam") !== -1 ||
+        text.indexOf("assalam") !== -1
+    ){
+
+        answer =
+        "Wa alaikum assalam! 🤗<br><br>" +
+        "Kaise ho bhai?";
+
+    }
+
+
+    else if(
+        text === "hi" ||
+        text === "hii" ||
+        text === "hello"
+    ){
+
+        answer =
+        "Hello bhai! 👋<br><br>" +
+        "Radartube AI me welcome hai. 😊";
+
+    }
+
+
+    else if(
+        text.indexOf("kaise ho") !== -1
+    ){
+
+        answer =
+        "Main bilkul theek hoon 😄<br><br>" +
+        "Tum batao, kaise ho?";
+
+    }
+
+
+    else if(
+        text.indexOf("naam") !== -1
+    ){
+
+        answer =
+        "Mera naam <b>Radartube AI</b> hai 🤖";
+
+    }
+
+
+    else if(
+        text.indexOf("radartube") !== -1
+    ){
+
+        answer =
+        "💙 Radartube ek blue-white website hai.<br><br>" +
+        "Isme Home, Photos, My Links aur Radartube AI sections hain.";
+
+    }
+
+
+    else if(
+        text.indexOf("photo") !== -1 ||
+        text.indexOf("photos") !== -1 ||
+        text.indexOf("tasveer") !== -1 ||
+        text.indexOf("image") !== -1
+    ){
+
+        answer =
+        "🖼️ Radartube me available photos Photos section me hain.<br><br>" +
+
+        "<a href='photos.html' class='photo-link'>" +
+        "📸 Photos kholo →" +
+        "</a>";
+
+    }
+
+
+    else if(
+        text.indexOf("youtube") !== -1 ||
+        text.indexOf("telegram") !== -1 ||
+        text.indexOf("link") !== -1
+    ){
+
+        answer =
+        "🔗 Radartube ke available links My Links section me hain.<br><br>" +
+
+        "<a href='services.html' class='photo-link'>" +
+        "🔗 My Links kholo →" +
+        "</a>";
+
+    }
+
+
+    else if(
+        text.indexOf("home") !== -1
+    ){
+
+        answer =
+        "🏠 Radartube ke Home page par jaane ke liye button dabao.<br><br>" +
+
+        "<a href='radartube.html' class='photo-link'>" +
+        "🏠 Home kholo →" +
+        "</a>";
+
+    }
+
+
+    else if(
+        text.indexOf("thank") !== -1 ||
+        text.indexOf("thanks") !== -1
+    ){
+
+        answer =
+        "Koi baat nahi bhai ❤️";
+
+    }
+
+
+    else if(
+        text.indexOf("bye") !== -1
+    ){
+
+        answer =
+        "Allah Hafiz bhai 👋❤️";
+
+    }
+
+
+    else{
+
+        answer =
+        "Samajh gaya 😊<br><br>" +
+
+        "Main Radartube ka free assistant hoon. " +
+
+        "Tum mujhse Radartube, Photos, Home aur Links ke baare me pooch sakte ho.";
+
+    }
+
+
+    var aiBox = document.createElement("div");
+
+    aiBox.className = "message ai";
+
+    aiBox.innerHTML =
+        "<b>🤖 Radartube AI</b><br><br>" +
+        answer;
+
+    messages.appendChild(aiBox);
+
+    typing.style.display = "none";
+
+    window.scrollTo(0, document.body.scrollHeight);
+
+}
+
+
+document
+.getElementById("sendButton")
+.addEventListener("click", function(){
+
+    var text = question.value.trim();
+
+    if(text === ""){
+        return;
+    }
+
+    var userBox = document.createElement("div");
+
+    userBox.className = "message user";
+
+    userBox.textContent = text;
+
+    messages.appendChild(userBox);
+
+    question.value = "";
+
+    typing.style.display = "block";
+
+    window.scrollTo(0, document.body.scrollHeight);
+
+    setTimeout(function(){
+
+        answerFromText();
+
+    },700);
+
+});
+
+
+question.addEventListener("keydown", function(e){
+
+    if(e.key === "Enter"){
+
+        document.getElementById("sendButton").click();
+
+    }
+
+});
+
+
+document
+.getElementById("helloButton")
+.addEventListener("click", function(){
+
+    question.value = "Hello";
+
+    document.getElementById("sendButton").click();
+
+});
+
+
+document
+.getElementById("howButton")
+.addEventListener("click", function(){
+
+    question.value = "Kaise ho?";
+
+    document.getElementById("sendButton").click();
+
+});
+
+
+document
+.getElementById("radarButton")
+.addEventListener("click", function(){
+
+    question.value = "Radartube kya hai?";
+
+    document.getElementById("sendButton").click();
+
+});
+
+
+document
+.getElementById("photoButton")
+.addEventListener("click", function(){
+
+    question.value = "Radartube ki photos kahan hain?";
+
+    document.getElementById("sendButton").click();
+
+});
+
+
+document
+.getElementById("clearButton")
+.addEventListener("click", function(){
+
+    messages.innerHTML =
+        "<div class='message ai'>" +
+        "<b>🤖 Radartube AI</b><br><br>" +
+        "Chat clear ho gaya 😊<br><br>" +
+        "Ab dobara baat shuru karo." +
+        "</div>";
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radartube - Photos</title>
 
@@ -25,17 +26,12 @@
 
         .top {
             display: flex;
-            justify-content: space-between;
             align-items: center;
         }
 
         .logo {
             font-size: 30px;
             font-weight: bold;
-        }
-
-        .menu {
-            font-size: 30px;
         }
 
         nav {
@@ -80,10 +76,7 @@
         .photo {
             height: 180px;
             border-radius: 18px;
-            background: linear-gradient(135deg, #087df5, #b8dcff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: #dcecff;
             overflow: hidden;
         }
 
@@ -91,6 +84,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         footer {
@@ -108,7 +102,6 @@
     <header>
         <div class="top">
             <div class="logo">Radartube</div>
-            <div class="menu">☰</div>
         </div>
     </header>
 
@@ -128,27 +121,17 @@
 
         <div class="gallery">
 
-            <!-- Photo 1 -->
             <div class="photo">
-                <img src="file_00000000bbcc82079f72666b55715c83.jpg">
+                <img src="./file_00000000bbcc82079f72666b55715c83.jpg" alt="Photo 1">
             </div>
 
-            <!-- Photo 2 -->
             <div class="photo">
-                <img src="file_0000000019e082118482aba9399ff998.jpg">
+                <img src="./file_0000000019e082118482aba9399ff998.jpg" alt="Photo 2">
             </div>
 
-            <!-- Photo 3 -->
             <div class="photo">
-                <img src="IMG_20260926_131101.jpg">
+                <img src="./IMG_20260926_131101.jpg" alt="Photo 3">
             </div>
-
-            <div class="photo">🌄</div>
-            <div class="photo">🌊</div>
-            <div class="photo">🌙</div>
-            <div class="photo">🌸</div>
-            <div class="photo">☀️</div>
-            <div class="photo">🏞️</div>
 
         </div>
 

@@ -1,253 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radartube</title>
-    <meta name="google-site-verification" content="SfoXsPW8rcBMKhkTH3CTrLVLYsFZykV1W8UNyEzRFek" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="SfoXsPW8rcBMKhkTH3CTrLVLYsFZykV1W8UNyEzRFek" />
+<title>Radartube</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f8ff;
-            color: #14213d;
-        }
-
-        header {
-            background: #087df5;
-            color: white;
-            padding: 20px;
-            border-radius: 0 0 25px 25px;
-        }
-
-        .top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 30px;
-            font-weight: bold;
-        }
-
-        .menu {
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        .menu-box {
-            display: none;
-            background: white;
-            padding: 10px;
-            box-shadow: 0 3px 12px #dce5f2;
-        }
-
-        .menu-box.show {
-            display: block;
-        }
-
-        .menu-box a {
-            display: block;
-            text-decoration: none;
-            color: #173b70;
-            font-weight: bold;
-            padding: 15px;
-            border-radius: 12px;
-        }
-
-        .menu-box a:hover {
-            background: #e8f2ff;
-        }
-
-        nav {
-            background: white;
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 5px;
-            box-shadow: 0 2px 8px #dce5f2;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #173b70;
-            font-weight: bold;
-            padding: 10px 18px;
-            border-radius: 25px;
-        }
-
-        nav a.active {
-            background: #087df5;
-            color: white;
-        }
-
-        .main {
-            padding: 18px;
-        }
-
-        .hero {
-            height: 270px;
-            border-radius: 22px;
-            background: linear-gradient(135deg, #087df5, #65b5ff);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin: 5px;
-        }
-
-        .hero p {
-            font-size: 18px;
-        }
-
-        .button {
-            background: white;
-            color: #087df5;
-            padding: 13px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        .boxes {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .box {
-            background: white;
-            flex: 1;
-            padding: 18px 8px;
-            border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 3px 12px #dce5f2;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .icon {
-            font-size: 32px;
-        }
-
-        .box h3 {
-            margin: 8px 0;
-        }
-
-        .box p {
-            font-size: 13px;
-            color: #65748b;
-        }
-
-        .memory {
-            background: #e8f2ff;
-            margin-top: 20px;
-            padding: 22px;
-            border-radius: 20px;
-            line-height: 1.6;
-        }
-
-        footer {
-            margin-top: 25px;
-            background: #087df5;
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-    </style>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f8ff;color:#17233d}
+header{background:linear-gradient(135deg,#087df5,#35a4ff);color:white;padding:15px;box-shadow:0 4px 15px #b9d8f5}
+.top{display:flex;align-items:center;justify-content:space-between}
+.logo{text-align:center;flex:1}
+.logo b{display:block;font-size:21px}
+.logo small{opacity:.85}
+.menu-btn{background:white;color:#087df5;border:0;border-radius:10px;padding:8px 12px;font-size:22px}
+.menu{display:none;background:white;padding:10px;border-radius:12px;margin-top:10px}
+.menu a{display:block;padding:12px;color:#087df5;text-decoration:none;font-weight:bold}
+nav{display:flex;justify-content:center;gap:25px;padding:15px;background:white}
+nav a{color:#087df5;text-decoration:none;font-weight:bold}
+.hero{text-align:center;padding:45px 20px}
+.hero h1{font-size:32px}
+.hero p{color:#667}
+.button{display:inline-block;background:#087df5;color:white;padding:13px 25px;border-radius:25px;text-decoration:none;font-weight:bold}
+.cards{display:flex;gap:12px;padding:20px}
+.box{background:white;flex:1;padding:20px 8px;border-radius:18px;text-align:center;box-shadow:0 3px 12px #dce5f2;text-decoration:none;color:inherit}
+.icon{font-size:35px}
+.memory{text-align:center;padding:25px}
+footer{text-align:center;padding:25px;color:#71809a}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <div class="top">
-            <div class="logo">Radartube</div>
+<header>
+<div class="top">
 
-            <div class="menu" onclick="openMenu()">☰</div>
-        </div>
-    </header>
+<button class="menu-btn" id="menuButton">☰</button>
 
-    <div class="menu-box" id="menuBox">
+<div class="logo">
+<b>Radartube</b>
+<small>My Personal Website</small>
+</div>
 
-        <a href="radartube.html">🏠 Home</a>
+<div style="width:45px"></div>
 
-        <a href="photos.html">🖼️ Photos</a>
+</div>
 
-        <a href="services.html">🔗 My Links</a>
+<div class="menu" id="menuBox">
+<a href="index.html">🏠 Home</a>
+<a href="photos.html">🖼️ Photos</a>
+<a href="services.html">🔗 My Links</a>
+<a href="ai.html">🤖 Radartube AI</a>
+</div>
+</header>
 
-        <a href="ai.html">🤖 Radartube AI</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="photos.html">Photos</a>
+<a href="services.html">Links</a>
+</nav>
 
-    </div>
+<section class="hero">
+<h1>Welcome to Radartube 💙</h1>
+<p>Meri website, meri yaadein aur mere links.</p>
+<a href="photos.html" class="button">Explore Now</a>
+</section>
 
-    <nav>
-        <a href="radartube.html" class="active">Home</a>
-        <a href="photos.html">Photos</a>
-        <a href="services.html">Links</a>
-    </nav>
+<div class="cards">
 
-    <div class="main">
+<a href="photos.html" class="box">
+<div class="icon">🖼️</div>
+<h3>Photos</h3>
+<p>Meri Yaadein Dekho</p>
+</a>
 
-        <div class="hero">
-            <h1>Radartube</h1>
-            <p>Meri Yaadein, Mera Safar</p>
+<a href="services.html" class="box">
+<div class="icon">🔗</div>
+<h3>My Links</h3>
+<p>Useful Links</p>
+</a>
 
-            <a href="photos.html" class="button">
-                Explore Now
-            </a>
-        </div>
+</div>
 
-        <div class="boxes">
+<div class="memory">
+<h2>💙 Radartube Memories</h2>
+<p>Yahan meri special yaadein rahengi.</p>
+</div>
 
-            <div class="box">
-                <div class="icon">🏠</div>
-                <h3>Home</h3>
-                <p>Welcome to Radartube</p>
-            </div>
+<footer>
+© 2026 Radartube
+</footer>
 
-            <a href="photos.html" class="box">
-                <div class="icon">🖼️</div>
-                <h3>Photos</h3>
-                <p>Meri Yaadein Dekho</p>
-            </a>
+<script>
+var menuButton=document.getElementById("menuButton");
+var menuBox=document.getElementById("menuBox");
 
-            <a href="services.html" class="box">
-                <div class="icon">🔗</div>
-                <h3>My Links</h3>
-                <p>Mere Social Links</p>
-            </a>
-
-        </div>
-
-        <div class="memory">
-            💙 <br>
-            <b>Radartube</b> ek personal jagah hai
-            jahan meri yaadein, photos aur
-            khaas cheezein rahengi.
-        </div>
-
-    </div>
-
-    <footer>
-        <h2>Radartube</h2>
-        <p>Sirf ek website nahi, meri yaadon ka ghar ❤️</p>
-    </footer>
-
-    <script>
-        function openMenu() {
-            document.getElementById("menuBox").classList.toggle("show");
-        }
-    </script>
+menuButton.addEventListener("click",function(){
+    if(menuBox.style.display==="block"){
+        menuBox.style.display="none";
+    }else{
+        menuBox.style.display="block";
+    }
+});
+</script>
 
 </body>
 </html>

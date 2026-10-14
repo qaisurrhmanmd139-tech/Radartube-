@@ -1,32 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="SfoXsPW8rcBMKhkTH3CTrLVLYsFZykV1W8UNyEzRFek" />
+<meta name="google-site-verification" content="SfoXsPW8rcBMKhkTH3CTrLVLYsFZykV1W8UNyEzRFek">
 <title>Radartube</title>
 
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:#f3f8ff;color:#17233d}
-header{background:linear-gradient(135deg,#087df5,#35a4ff);color:white;padding:15px;box-shadow:0 4px 15px #b9d8f5}
+
+header{
+background:linear-gradient(135deg,#087df5,#35a4ff);
+color:white;padding:15px;
+box-shadow:0 4px 15px #b9d8f5
+}
+
 .top{display:flex;align-items:center;justify-content:space-between}
-.logo{text-align:center;flex:1}
+
+.brand{display:flex;align-items:center;gap:10px;flex:1;justify-content:center}
+
+.logo-img{
+width:55px;height:55px;border-radius:50%;
+object-fit:cover;background:white
+}
+
+.logo{text-align:left}
 .logo b{display:block;font-size:21px}
 .logo small{opacity:.85}
-.menu-btn{background:white;color:#087df5;border:0;border-radius:10px;padding:8px 12px;font-size:22px}
+
+.menu-btn{
+background:white;color:#087df5;border:0;
+border-radius:10px;padding:8px 12px;font-size:22px
+}
+
 .menu{display:none;background:white;padding:10px;border-radius:12px;margin-top:10px}
 .menu a{display:block;padding:12px;color:#087df5;text-decoration:none;font-weight:bold}
+
 nav{display:flex;justify-content:center;gap:25px;padding:15px;background:white}
 nav a{color:#087df5;text-decoration:none;font-weight:bold}
+
 .hero{text-align:center;padding:45px 20px}
 .hero h1{font-size:32px}
 .hero p{color:#667}
-.button{display:inline-block;background:#087df5;color:white;padding:13px 25px;border-radius:25px;text-decoration:none;font-weight:bold}
+
+.button{
+display:inline-block;background:#087df5;color:white;
+padding:13px 25px;border-radius:25px;
+text-decoration:none;font-weight:bold
+}
+
 .cards{display:flex;gap:12px;padding:20px}
-.box{background:white;flex:1;padding:20px 8px;border-radius:18px;text-align:center;box-shadow:0 3px 12px #dce5f2;text-decoration:none;color:inherit}
+.box{
+background:white;flex:1;min-width:0;padding:20px 8px;
+border-radius:18px;text-align:center;
+box-shadow:0 3px 12px #dce5f2;
+text-decoration:none;color:inherit
+}
+
 .icon{font-size:35px}
 .memory{text-align:center;padding:25px}
 footer{text-align:center;padding:25px;color:#71809a}
+
+@media(max-width:380px){
+.logo-img{width:45px;height:45px}
+.logo b{font-size:19px}
+.brand{gap:7px}
+nav{gap:20px}
+}
 </style>
 </head>
 
@@ -37,12 +78,15 @@ footer{text-align:center;padding:25px;color:#71809a}
 
 <button class="menu-btn" id="menuButton">☰</button>
 
+<div class="brand">
+<img class="logo-img" src="radartube-logo.png" alt="Radartube Logo">
 <div class="logo">
 <b>Radartube</b>
 <small>My Personal Website</small>
 </div>
+</div>
 
-<div style="width:45px"></div>
+<div style="width:42px"></div>
 
 </div>
 
@@ -96,11 +140,8 @@ var menuButton=document.getElementById("menuButton");
 var menuBox=document.getElementById("menuBox");
 
 menuButton.addEventListener("click",function(){
-    if(menuBox.style.display==="block"){
-        menuBox.style.display="none";
-    }else{
-        menuBox.style.display="block";
-    }
+    menuBox.style.display=
+    menuBox.style.display==="block"?"none":"block";
 });
 </script>
 

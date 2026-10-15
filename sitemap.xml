@@ -1,20 +1,7 @@
-   <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://qaisurrhmanmd139-tech.github.io/Radartube-/</loc>
-  </url>
-
-  <url>
-    <loc>https://qaisurrhmanmd139-tech.github.io/Radartube-/photos.html</loc>
-  </url>
-
-  <url>
-    <loc>https://qaisurrhmanmd139-tech.github.io/Radartube-/services.html</loc>
-  </url>
-
-  <url>
-    <loc>https://qaisurrhmanmd139-tech.github.io/Radartube-/ai.html</loc>
-  </url>
-
+<url><loc>https://qaisurrhmanmd139-tech.github.io/Radartube-/</loc></url>
+<url><loc>https://qaisurrhmanmd139-tech.github.io/Radartube-/photos.html</loc></url>
+<url><loc>https://qaisurrhmanmd139-tech.github.io/Radartube-/services.html</loc></url>
+<url><loc>https://qaisurrhmanmd139-tech.github.io/Radartube-/ai.html</loc></url>
 </urlset>
